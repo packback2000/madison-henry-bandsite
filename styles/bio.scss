@@ -1,0 +1,121 @@
+
+
+/*when you use sass variables, they don't compile into css variables, they compile to the actual value
+
+so instead of :root {
+    --primary-color: #727272; }
+
+it would be
+    $primary-color: #272727 }
+
+    then
+    body {
+        background-color: $primary-color}
+
+maps are lists of key value pairs so
+        $font-weights: (
+            "regular":400,
+            "medium": 500,
+            "bold":700
+            );
+
+    body {
+        font-weight: map-get(font-weights, bold)
+    }
+
+Nesting
+    .main {
+        width: 80%;
+
+        p { (you can also use an & because that equals the parent. If you also want everything before it then you would put #{&})
+            font-weight: $medium
+        }
+    }
+    (of you want the parent element to change as you you can do &:hover)
+
+Partials
+    A Sass file names with a leading underscore to let Sass know that it is only a partial and it should not generate a css file and the compiler will ignore it.
+    @import "./partials" at the beginning for universal things
+
+Functions
+    Functions allow you to define complex operations on SassScript values that you can re-use throughout your stylesheet.
+    @function weight($weight-name) {
+        @return map-get($font-weight, $weight-name);
+    }
+
+    body {
+        font-weight: weight(medium)\
+    }
+
+Mixins
+    Mixins allow you to define styles that can be re-used throughout your stylesheet
+    Ex. if you have a lot of flexboxes that you have to make but you don't want to keep typing the same thing like align items
+
+    @mixin flexCenter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    To use:
+    @include flexCenter;
+
+    You can also pass an argument into the mixin
+    @mixin flexCenter($direction){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: $direction
+    }
+
+    @include flexCenter(column)
+    Will place it in a colum
+
+    Mixins define styles but functions are for values.
+
+    You can also do @if to change things based on variables
+        Ex. @if
+
+    */
+
+$bandsite-black: #323232;
+$silver: #AFAFAF;
+$white: #FFFFFF;
+$bandsite-darkblack: #000000;
+$mercury: #E1E1E1;
+$alabaster: #FAFAFA;
+
+
+@mixin Icon {
+    background-color: $bandsite-black;
+
+}
+@mixin mobile {
+    @media (max-width: 599px) {
+    
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 600px) and (max-width: 899px) and (orientation: portrait) {
+    
+    }
+
+    @media (min-width: 900px) and (max-width: 1199px) and (orientation: landscape) {
+
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+}
+
+@mixin images {
+    padding: 16px;
+    width: 100%;
+}
+
+img {
+    @include images;
+}
