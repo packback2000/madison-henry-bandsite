@@ -1,21 +1,53 @@
+
+$bandsite-black: #323232;
+$silver: #AFAFAF;
+$white: #FFFFFF;
+$bandsite-darkblack: #000000;
+$mercury: #E1E1E1;
+$alabaster: #FAFAFA;
 @font-face {
-    font-family: "Avenir Next Regular";
-    src: url(../assets/Font/AvenirNextLTPro-Regular.otf) format("woff2");
-    font-weight: 400;
-    font-style: normal;
+    font-family: avenirRegular;
+    src: url(../assets/Font/AvenirNextLTPro-Regular.otf);
+}
+@font-face {
+    font-family: avenirBold;
+    src: url(../assets/Font/AvenirNextLTPro-Bold.otf);
+
+}
+@font-face {
+    font-family: avenirDemi;
+    src: url(../assets/Font/AvenirNextLTPro-Demi.otf);
 }
 
-@font-face {
-    font-family: "Avenir Next Demi";
-    src: url(../assets/Font/AvenirNextLTPro-Demi.otf) format("woff2");
-    font-weight: 600;
-    font-style: normal;
+@mixin tablet-desktop__subheader {
+    font-size: 1.5em;
+    line-height: 1.375em;
 }
 
-@font-face {
-    font-family: Avenir Next Bold;
-    src: url(../assets/Font/AvenirNextLTPro-Bold.otf) format("woff2");
-    font-weight: 700;
-    font-style: normal;
+@mixin subheader {
+    font-size: 0.875em;
+    line-height: 1.375em;
 }
 
+@mixin header {
+    font-size: 1.5em;
+    line-height: 2em;
+}
+
+@mixin tablet-desktop__header{
+    font-size: 2.25em;
+    line-height: 2.75em;
+}
+
+@mixin footer {
+    font-size: 0.8125em;
+    line-height: 1.125em;
+    color: $white;
+    background-color: $bandsite-black;
+    font-family: avenirRegular;
+}
+
+@mixin tablet-desktop__footer {
+    font-size: 0.875em;
+    line-height: 1.25em;
+}

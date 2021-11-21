@@ -1,81 +1,489 @@
-/*when you use sass variables, they don't compile into css variables, they compile to the actual value
+@font-face {
+  font-family: avenirRegular;
+  src: url(../assets/Font/AvenirNextLTPro-Regular.otf);
+}
+@font-face {
+  font-family: avenirBold;
+  src: url(../assets/Font/AvenirNextLTPro-Bold.otf);
+}
+@font-face {
+  font-family: avenirDemi;
+  src: url(../assets/Font/AvenirNextLTPro-Demi.otf);
+}
+body {
+  margin: 0em;
+}
 
-so instead of :root {
-    --primary-color: #727272; }
+.current {
+  text-decoration: underline;
+  -webkit-text-decoration-color: #E1E1E1;
+          text-decoration-color: #E1E1E1;
+  text-decoration-thickness: 0.3em;
+  color: #E1E1E1;
+  text-underline-offset: 2em;
+}
+@media (max-width: 37.4735em) {
+  .current {
+    text-underline-offset: 1em;
+  }
+}
 
-it would be
-    $primary-color: #272727 }
+.header {
+  background-color: #323232;
+  color: #FFFFFF;
+  margin: 0em;
+}
 
-    then
-    body {
-        background-color: $primary-color}
+.header-nav__list {
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  font-size: 0.9375em;
+  line-height: 1.25em;
+  font-family: avenirRegular;
+  padding: 1em;
+}
+@media (min-width: 600px) {
+  .header-nav__list {
+    display: flex;
+    padding: 1em;
+    align-items: center;
+    width: 50%;
+    justify-content: left;
+    margin: 0;
+    max-height: -webkit-fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+  }
+}
 
-maps are lists of key value pairs so
-        $font-weights: (
-            "regular":400,
-            "medium": 500,
-            "bold":700
-            );
+.header-nav__title {
+  font-family: avenirRegular;
+  text-align: center;
+  margin: auto;
+  font-size: 0.875em;
+  line-height: 1.375em;
+  max-width: 120px;
+  max-height: 1.25em;
+  margin: auto;
+  justify-content: center;
+  max-height: 1.25em;
+  max-width: 120px;
+}
+.header-nav__title p {
+  margin: 0px;
+  padding-bottom: 1em;
+}
+@media (min-width: 600px) {
+  .header-nav__title {
+    line-height: 44px;
+    justify-content: left;
+    margin: 0px;
+    max-height: -webkit-fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+    font-size: 1.5em;
+    line-height: 1.375em;
+  }
+  .header-nav__title p {
+    display: flex;
+    padding-bottom: 36px;
+    margin: 0px;
+  }
+}
+@media (min-width: 600px) and (min-width: 600px) {
+  .header-nav__title p {
+    padding: 0px;
+  }
+}
 
-    body {
-        font-weight: map-get(font-weights, bold)
-    }
+ul {
+  display: flex;
+  margin: auto;
+  padding-left: 0;
+  padding-bottom: 0.25em;
+  padding-top: 0.75em;
+}
+@media (min-width: 600px) {
+  ul {
+    justify-content: space-around;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 36px;
+  }
+}
 
-Nesting
-    .main {
-        width: 80%;
+li {
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+}
+@media (min-width: 600px) {
+  li {
+    justify-content: space-around;
+    padding: 1em;
+    max-height: -webkit-fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+  }
+}
 
-        p { (you can also use an & because that equals the parent. If you also want everything before it then you would put )
-            font-weight: $medium
-        }
-    }
-    (of you want the parent element to change as you you can do &:hover)
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
 
-Partials
-    A Sass file names with a leading underscore to let Sass know that it is only a partial and it should not generate a css file and the compiler will ignore it.
-    @import "./partials" at the beginning for universal things
-
-Functions
-    Functions allow you to define complex operations on SassScript values that you can re-use throughout your stylesheet.
-    @function weight($weight-name) {
-        @return map-get($font-weight, $weight-name);
-    }
-
-    body {
-        font-weight: weight(medium)\
-    }
-
-Mixins
-    Mixins allow you to define styles that can be re-used throughout your stylesheet
-    Ex. if you have a lot of flexboxes that you have to make but you don't want to keep typing the same thing like align items
-
-    @mixin flexCenter {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    To use:
-    @include flexCenter;
-
-    You can also pass an argument into the mixin
-    @mixin flexCenter($direction){
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: $direction
-    }
-
-    @include flexCenter(column)
-    Will place it in a colum
-
-    Mixins define styles but functions are for values.
-
-    You can also do @if to change things based on variables
-        Ex. @if
-
-    */
-img {
-  padding: 16px;
+.header-image {
+  position: relative;
+  text-align: left;
+  color: #FFFFFF;
+  display: flex;
+  height: auto;
+  max-width: 100%;
+}
+.header-image img {
+  position: relative;
+  max-height: auto;
+  max-width: 100%;
+}
+.header-image .header-image__overlay {
+  position: absolute;
+  background-color: #323232;
+  opacity: 50%;
+  color: #FFFFFF;
   width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: avenirRegular;
+}
+.header-image .header-image__text {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  font-family: avenirDemi;
+  font-size: 7vw;
+}
+
+.about {
+  color: #323232;
+  padding: 0px 1em;
+}
+@media (min-width: 600px) {
+  .about {
+    padding: 0px 36px;
+  }
+}
+.about .about-header__title {
+  font-family: avenirDemi;
+  font-size: 1.5em;
+  line-height: 2em;
+  padding-top: 24px;
+  padding-bottom: 1em;
+  margin: 0px;
+}
+@media (min-width: 600px) {
+  .about .about-header__title {
+    padding-top: 48px;
+    padding-bottom: 36px;
+    font-size: 36px;
+    line-height: 44px;
+    font-size: 2.25em;
+    line-height: 2.75em;
+  }
+}
+.about .about-header__image {
+  position: relative;
+  text-align: left;
+  color: #FFFFFF;
+  display: flex;
+  height: auto;
+  max-width: 100%;
+}
+@media (min-width: 1200px) {
+  .about .about-header__image {
+    max-width: 75%;
+    margin: auto;
+  }
+}
+.about .about-header__image img {
+  position: relative;
+  max-height: auto;
+  max-width: 100%;
+}
+.about .about-header__quote {
+  font-family: avenirDemi;
+  font-size: 0.875em;
+  line-height: 1.375em;
+}
+@media (min-width: 600px) {
+  .about .about-header__quote {
+    font-size: 1.5em;
+    line-height: 1.375em;
+  }
+}
+@media (min-width: 1200px) {
+  .about .about-header__quote {
+    max-width: 75%;
+    margin: auto;
+    padding-top: 36px;
+  }
+}
+.about .about-subheader__title {
+  font-size: 0.875em;
+  line-height: 1.375em;
+  font-family: avenirDemi;
+  color: #000000;
+}
+@media (min-width: 600px) {
+  .about .about-subheader__title {
+    font-size: 1.5em;
+    line-height: 1.375em;
+  }
+}
+@media (min-width: 1200px) {
+  .about .about-subheader__title {
+    max-width: 75%;
+    margin: auto;
+    padding-top: 36px;
+  }
+}
+.about .about-subheader {
+  font-size: 13px;
+  line-height: 22px;
+  font-family: avenirRegular;
+}
+@media (min-width: 600px) {
+  .about .about-subheader {
+    width: 100%;
+    height: 90%;
+    margin: 0px;
+    text-align: justify;
+    justify-content: space-between;
+    font-size: 0.875em;
+    line-height: 1.375em;
+    font-family: avenirRegular;
+    display: flex;
+  }
+  .about .about-subheader p {
+    padding-right: 36px;
+  }
+}
+@media (min-width: 1200px) {
+  .about .about-subheader {
+    max-width: 75%;
+    margin: auto;
+  }
+  .about .about-subheader p {
+    padding-right: 36px;
+  }
+}
+
+.gallery {
+  padding: 1em;
+  font-family: avenirDemi;
+  color: #323232;
+  font-size: 1.5em;
+  line-height: 2em;
+  background-color: #FAFAFA;
+}
+.gallery p {
+  margin: 0em;
+}
+@media (min-width: 600px) {
+  .gallery {
+    padding: 36px;
+    font-size: 2.25em;
+    line-height: 2.75em;
+  }
+  .gallery p {
+    padding-top: 0.75em;
+    padding-left: 0.75em;
+    margin: 0em;
+  }
+}
+@media (min-width: 600px) and (min-width: 1200px) {
+  .gallery {
+    padding-left: 18px;
+  }
+}
+
+.gallery-images img {
+  position: relative;
+  height: auto;
+  width: 100%;
+  padding: 5px;
+}
+@media (min-width: 37.5em) {
+  .gallery-images img {
+    width: 30%;
+    padding: 0.25em;
+  }
+}
+@media (min-width: 1200px) {
+  .gallery-images img {
+    padding: 18px;
+  }
+}
+
+.gallery-images {
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 600px) {
+  .gallery-images {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+
+.footer {
+  margin: 0px;
+  padding: 1em;
+  font-size: 0.8125em;
+  line-height: 1.125em;
+  color: #FFFFFF;
+  background-color: #323232;
+  font-family: avenirRegular;
+}
+@media (min-width: 600px) {
+  .footer {
+    font-size: 0.875em;
+    line-height: 1.25em;
+    padding: 3em 2.25em 2.25em 2.25em;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.footer .footer-socialcontainer {
+  line-height: 1.25em;
+  font-weight: 700;
+  width: 50%;
+  height: auto;
+  display: flex;
+}
+.footer .footer-socialcontainer a {
+  justify-content: space-between;
+  display: flex;
+  padding-right: 1em;
+}
+.footer .footer-socialcontainer a img {
+  width: 1.5em;
+  height: 1.5em;
+}
+@media (min-width: 37.5em) {
+  .footer .footer-socialcontainer {
+    display: flex;
+    flex-direction: row;
+    line-height: 2.75em;
+    justify-content: space-between;
+    width: 15%;
+    align-items: baseline;
+  }
+  .footer .footer-socialcontainer a {
+    justify-content: space-between;
+    display: flex;
+    padding-right: 0.5em;
+  }
+  .footer .footer-socialcontainer img {
+    max-width: 1.75rem;
+    max-height: 1.75rem;
+    justify-content: space-between;
+    display: flex;
+  }
+}
+@media (min-width: 75em) {
+  .footer .footer-socialcontainer a {
+    justify-content: left;
+    padding: 0.5em;
+  }
+}
+.footer .footer-header {
+  color: #FFFFFF;
+  font-family: avenirDemi;
+  padding-bottom: 1em;
+  font-size: 1.5em;
+  line-height: 2em;
+  margin: 0;
+}
+@media (min-width: 37.5em) {
+  .footer .footer-header {
+    font-size: 2.25em;
+    line-height: 2.75em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer .footer-header p {
+    margin: 0em;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 37.5em) {
+  .footer .footer-contactinfo {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+  }
+}
+@media (min-width: 75em) {
+  .footer .footer-contactinfo {
+    width: 75%;
+    font-size: 0.875em;
+    line-height: 1.25em;
+  }
+}
+@media (min-width: 75em) {
+  .footer .footer-contactinfo {
+    font-size: 1em;
+    line-height: 1.5em;
+    height: auto;
+  }
+}
+.footer .footer-copy__first-line {
+  font-weight: 600;
+}
+.footer .footer-copy {
+  font-weight: 400;
+}
+@media (min-width: 37.5em) {
+  .footer .footer-copy {
+    font-size: 0.875em;
+    line-height: 1.25em;
+  }
+}
+.footer .footer-logo__two {
+  line-height: 2em;
+  padding-top: 1.5em;
+  padding-bottom: 0em;
+}
+@media (min-width: 37.5em) {
+  .footer .footer-logo__two {
+    display: none;
+  }
+}
+.footer .footer-logo__one {
+  line-height: 2em;
+  padding-bottom: 0em;
+  display: flex;
+  width: 45%;
+  justify-content: flex-end;
+  right: 1%;
+}
+@media (max-width: 37.4735em) {
+  .footer .footer-logo__one {
+    display: none;
+  }
+}
+@media (min-width: 75em) {
+  .footer .footer-logo__one {
+    width: 70%;
+  }
+}
+.footer .footer-copyright {
+  font-size: 0.8125em;
 }/*# sourceMappingURL=bio.css.map */
