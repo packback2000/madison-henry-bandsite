@@ -51,3 +51,15 @@ $alabaster: #FAFAFA;
     font-size: 0.875em;
     line-height: 1.25em;
 }
+
+@mixin body {
+    font-size: 13px;
+    line-height: 18px;
+    font-family: avenirRegular;
+}
+
+@mixin desktop-tablet__body {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: avenirRegular;
+}

@@ -63,10 +63,10 @@
     <section class="comments">
         <p>Join the Conversation</p>
         <div class="comment-container">
-            <div class="img-container">
-                <img src="./assets/Images/Mohan-muruge.jpg">
-            </div>
-        <form  id="form" method="post" onsubmit='return validateRequired()'>
+        <img src="./assets/Images/Mohan-muruge.jpg" id="image">
+        <form  id="form" method="post">
+            <label for="avatar"></label>
+            <input type="image" id="avatar" name="avatar" src="./assets/Images/Mohan-muruge.jpg" alt="Submit" width="48" height="48">
             <br>
             <label for="name" class="required">Name</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -78,10 +78,9 @@
             <ul id="allComments"></ul>
         </form>
     </div>
-    </section>
-
     <table class="comments-table" id="comments-table"></table>
     <script src="./scripts/index-page.js"></script>
+</section>
 
     <footer class="footer">
         <div class="footer-header">
@@ -91,11 +90,8 @@
             <a href="https://www.facebook.com/"><img src="./assets/Icons/SVG/Icon-facebook.svg"></a>
             <a href="https://twitter.com/?lang=en"><img src="./assets/Icons/SVG/Icon-twitter.svg"></a>
         </div>
-        
         <div class="footer-logo__one"><img src="./assets/Logo/Logo-bandsite.svg"></div>
     </div>
-    </div>
-
         <div class="footer-contactinfo">
         <div class="footer-contactinfo__camAdams">
             <p class="footer-copy__first-line">Cam Adams<br> The Bees Knees Management</p>
