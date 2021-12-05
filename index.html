@@ -11,10 +11,10 @@
 <body>
     <header class="header">
         <nav class="header-nav__list">
-            <a href="#" class="header-nav__title"><img src="./assets/Logo/Logo-bandsite.svg"></a>
+            <a href="./index.html" class="header-nav__title"><img src="./assets/Logo/Logo-bandsite.svg"></a>
             <ul>
                 <li><a href="#" class="current">Biography</a></li>
-                <li><a href="">Shows</a></li>
+                <li><a href="./pages/shows.html">Shows</a></li>
             </ul>
         </nav>
 
@@ -59,6 +59,29 @@
            <img src="./assets/Images/Photo-gallery-9.jpg">
         </div>
     </section>
+
+    <section class="comments">
+        <p>Join the Conversation</p>
+        <div class="comment-container">
+            <div class="img-container">
+                <img src="./assets/Images/Mohan-muruge.jpg">
+            </div>
+        <form  id="form" method="post" onsubmit='return validateRequired()'>
+            <br>
+            <label for="name" class="required">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <br>
+            <label for="comments" class="required">Comment</label>
+            <textarea name="comments" id="comments" placeholder="Add a new Comment" rows="6" cols="30" required></textarea>
+            <br>
+            <button type="submit" value="Comment" id="addComments" class="required">Comment</button>
+            <ul id="allComments"></ul>
+        </form>
+    </div>
+    </section>
+
+    <table class="comments-table" id="comments-table"></table>
+    <script src="./scripts/index-page.js"></script>
 
     <footer class="footer">
         <div class="footer-header">
