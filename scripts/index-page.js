@@ -2,9 +2,9 @@
 /*Start Default Comments*/
 
 let commentArray = [
-    {name:"Connor Walton", time:"02/17/2021" ,comment:"This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."},
-    {name:"Emilie Beach", time:"01/09/2021", comment:"I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."},
-    {name:"Miles Acosta", time:"12/20/2020", comment:"I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."},
+    {avatar: '', name:"Connor Walton", time:"02/17/2021" ,comment:"This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."},
+    {avatar: '', name:"Emilie Beach", time:"01/09/2021", comment:"I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."},
+    {avatar: '', name:"Miles Acosta", time:"12/20/2020", comment:"I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."},
 ]
 
 
@@ -50,12 +50,12 @@ fullDate = year + "/" + month + "/" + day;
 
 form.addEventListener('submit', function(event) { /*submit using event listener*/
     event.preventDefault(); /*prevent page from refreshing on submit*/
-    const newObj = {name: event.target.name.value, time: fullDate, comment: event.target.comments.value} /*construct new event object*/ 
-    form.reset();
-    document.getElementById('comments-table').innerHTML = "";
+    const newObj = {avatar: event.target.avatar, name: event.target.name.value, time: fullDate, comment: event.target.comments.value} /*date and construct new event object*/ 
+    form.reset(); /*clear input fields after submitting new comment*/
+    document.getElementById('comments-table').innerHTML = ""; /*clears all comments from page*/
     commentArray.unshift(newObj)    /*push new comment object into array of comments*/
-    /*clears all comments from page*/
-     /*clear input fields after submitting new comment*/
+    
+     
 
     generateCommentTableBody(table,commentArray);
     generateCommentTableHead(table,data)/*Re-renders to the page all comments from the comment array, so all of the old comment plus the new button*/
@@ -71,7 +71,7 @@ form.addEventListener('submit', function(event) { /*submit using event listener*
 /*Start Display Comment Function*/
 function displayComment(comment){
   var enteredComment = document.createComment('li');
-  var newCommentText = document.createTextNode('comments')
+  var newCommentText = document.createTextNode('allComments')
   enteredComment.appendChild(newCommentText);
 }
 let commentNew = displayComment('allComments')
