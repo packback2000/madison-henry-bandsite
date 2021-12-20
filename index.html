@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BandSite</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="./styles/bio.css" type="text/css"/>
 </head>
 
@@ -19,7 +20,6 @@
         </nav>
 
         <div class="header-image">
-            <img src="./assets/Images/hero-bio.jpg">
             <div class="header-image__overlay"></div>
             <div class="header-image__text"><p>The Bees Knees</p></div>
         </div>
@@ -60,27 +60,23 @@
         </div>
     </section>
 
-    <section class="comments">
+    <section class="comment-section">
         <p>Join the Conversation</p>
-        <div class="comment-container">
-        <img src="./assets/Images/Mohan-muruge.jpg" id="image">
-        <form  id="form" method="post">
-            <label for="avatar"></label>
-            <input type="image" id="avatar" name="avatar" src="./assets/Images/Mohan-muruge.jpg" alt="Submit" width="48" height="48">
-            <br>
-            <label for="name" class="required">Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-            <br>
-            <label for="comments" class="required">Comment</label>
-            <textarea name="comments" id="comments" placeholder="Add a new Comment" rows="6" cols="30" required></textarea>
-            <br>
-            <button type="submit" value="Comment" id="addComments" class="required">Comment</button>
-            <ul id="allComments"></ul>
+        <form id="my-form">
+                <label for="avatar" class="avatar-class"></label>
+                <input type="image" id="avatar" name="avatar" src="./assets/Images/Mohan-muruge.jpg">
+            <section class="form-inputs">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="user-name" placeholder="Enter your name" required >
+            <label for="comment">Comment</label>
+            <textarea id="message" name="user-comment" placeholder="Add a new comment" required value={formValue.comment}></textarea>
+            <button type="submit">Submit</button>
+        </section>
         </form>
-    </div>
-    <table class="comments-table" id="comments-table"></table>
+    </section>
+
+    <section class="comment-list" id="comment-list"></section>
     <script src="./scripts/index-page.js"></script>
-</section>
 
     <footer class="footer">
         <div class="footer-header">
